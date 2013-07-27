@@ -22,13 +22,19 @@
         <script type="text/template" id="cats-tpl">
             <thead>
                 <tr class="header">
+                    <th>Rank</th>
                     <th>Name</th>
+                    <th>Image</th>
+                    <th>Vote</th>
                 </tr>
             </thead>
             <tbody></tbody>
         </script>
         <script type="text/template" id="cat-tpl">
+            <td><%= rank %></td>
             <td><%= name %></td>
+            <td><img src="<%= image_path %>" alt="" class="cat-pic"></td>
+            <td><button class="pure-button pure-button-ok">Up</button><button class="pure-button pure-button-ko">Down</button></td>
         </script>
     </body>
 </html>

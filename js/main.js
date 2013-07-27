@@ -4,7 +4,11 @@ App.addRegions({
     mainRegion: "#content"
 });
 
-var Cat = Backbone.Model.extend({});
+var Cat = Backbone.Model.extend({
+    defaults: {
+        rank: 0
+    }
+});
 
 var Cats = Backbone.Collection.extend({
     model: Cat
@@ -34,9 +38,9 @@ App.addInitializer(function(options) {
 
 $(function() {
     var cats = new Cats([
-        { name: 'Wet Cat' },
-        { name: 'Bitey Cat' },
-        { name: 'Surprised Cat' }
+        { name: 'Wet Cat', image_path: "http://lorempixel.com/100/100/cats/1" },
+        { name: 'Bitey Cat', image_path: "http://lorempixel.com/100/100/cats/2" },
+        { name: 'Surprised Cat', image_path: "http://lorempixel.com/100/100/cats/3" }
     ]);
 
     App.start({ cats: cats });
