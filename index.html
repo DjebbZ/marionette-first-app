@@ -23,18 +23,22 @@
             <thead>
                 <tr class="header">
                     <th>Rank</th>
+                    <th>Votes</th>
                     <th>Name</th>
                     <th>Image</th>
-                    <th>Vote</th>
+                    <th>Rank them !</th>
+                    <th>Disqualify !</th>
                 </tr>
             </thead>
             <tbody></tbody>
         </script>
         <script type="text/template" id="cat-tpl">
             <td><%= rank %></td>
+            <td><%= votes %></td>
             <td><%= name %></td>
             <td><img src="<%= image_path %>" alt="" class="cat-pic"></td>
             <td><button class="pure-button pure-button-ok js-btn-up">Up</button><button class="pure-button pure-button-ko js-btn-down">Down</button></td>
+            <td><button class="pure-button pure-button-primary js-btn-disqualify">Disqualify</button></td>
         </script>
     </body>
 </html>

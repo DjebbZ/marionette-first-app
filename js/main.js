@@ -6,7 +6,8 @@ App.addRegions({
 
 var Cat = Backbone.Model.extend({
     defaults: {
-        rank: 0
+        rank: 0,
+        votes: 0
     },
 
     rankUp: function () {
@@ -15,6 +16,10 @@ var Cat = Backbone.Model.extend({
 
     rankDown: function () {
         this.set("rank", this.get("rank") + 1);
+    },
+
+    addVote: function() {
+        this.set("votes", this.get("votes") + 1);
     }
 });
 
@@ -49,6 +54,19 @@ var Cats = Backbone.Collection.extend({
                 .rankDown(cat)
                 .sort()
                 .trigger("reset");
+        });
+
+        App.on('cat:disqualify', function (cat) {
+            var disqualifiedRank = cat.get("rank"),
+                catsToUpRank = self.filter(function (cat) {
+                    return cat.get("rank") > disqualifiedRank;
+                });
+
+            catsToUpRank.forEach(function (cat) {
+                cat.rankUp();
+            });
+
+            // self.trigger("reset");
         });
     },
 
@@ -88,15 +106,27 @@ var CatView = Backbone.Marionette.ItemView.extend({
 
     events: {
         "click .js-btn-up": "rankUp",
-        "click .js-btn-down": "rankDown"
+        "click .js-btn-down": "rankDown",
+        "click .js-btn-disqualify": "disqualify"
+    },
+
+    initialize: function () {
+        this.listenTo(this.model, "change:votes", this.render);
     },
 
     rankUp: function () {
+        this.model.addVote();
         App.trigger("rank:up", this.model);
     },
 
     rankDown: function () {
+        this.model.addVote();
         App.trigger("rank:down", this.model);
+    },
+
+    disqualify: function () {
+        App.trigger('cat:disqualify', this.model);
+        this.model.destroy();
     }
 });
 
@@ -129,5 +159,5 @@ $(function() {
         name: 'Other Cat',
         image_path: "http://lorempixel.com/100/100/cats/4",
         rank: cats.size() + 1
-    }))
+    }));
 });
