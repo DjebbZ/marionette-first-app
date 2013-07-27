@@ -1,0 +1,17 @@
+{
+  "name": "marionette-first-app",
+  "version": "0.0.0",
+  "main": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "marionette": "~1.0.4",
+    "jquery": "~2.0.3",
+    "normalize-css": "~2.1.2"
+  }
+}
