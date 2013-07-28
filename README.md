@@ -7,5 +7,5 @@ This app is using [Bower](http://bower.io/), [Pure.css](http://purecss.io/), [Ma
 
 There are two implementations of the application using differents modules strategies :
 
-- [no-module](tree/master/no-module) : everything in one file and in the global scope. Quick'n'dirty.
-- [brunch](tree/master/brunch) : straight port using Brunch and the CommonJS module format. Much better.
+- [no-module](https://github.com/DjebbZ/marionette-first-app/tree/master/no-module) : everything in one file and in the global scope. Quick'n'dirty.
+- [brunch](https://github.com/DjebbZ/marionette-first-app/tree/master/brunch) : straight port using Brunch and the CommonJS module format. Much better.
