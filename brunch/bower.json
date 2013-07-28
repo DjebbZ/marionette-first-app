@@ -1,0 +1,41 @@
+{
+  "name": "Marionette-first-app-brunch",
+  "version": "0.0.1",
+  "main": "public/app.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "marionette": "~1.0.4",
+    "jquery": "~2.0.3"
+  },
+  "overrides": {
+    "backbone": {
+      "main": "backbone.js",
+      "dependencies": {
+        "jquery": "~2.0.3",
+        "underscore": "~1.5.1"
+      }
+    },
+    "marionette": {
+      "main": "lib/core/backbone.marionette.js"
+    },
+    "backbone.babysitter": {
+      "main": "lib/backbone.babysitter.js",
+      "dependencies": {
+        "backbone": "*"
+      }
+    },
+    "backbone.wreqr": {
+      "main": "lib/backbone.wreqr.js",
+      "dependencies": {
+        "backbone": "*"
+      }
+    },
+    "underscore": {
+      "main": "underscore.js"
+    }
+  }
+}
